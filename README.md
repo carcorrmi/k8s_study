@@ -1,6 +1,7 @@
 # k8s_study
 
 This repository provides a minimal project to practice basic Kubernetes concepts.
+
 The `examples` directory contains a Kind configuration and a starter Helm chart.
 
 ## Prerequisites (macOS)
