@@ -1,15 +1,41 @@
 # k8s_study
 
 This repository provides a minimal project to practice basic Kubernetes concepts.
-The `examples` directory contains a simple Kind configuration and a starter Helm chart.
+
+The `examples` directory contains a Kind configuration and a starter Helm chart.
+
+## Prerequisites (macOS)
+
+1. Install [Homebrew](https://brew.sh) if it's not already available.
+2. Install Docker Desktop and start it so the Docker daemon is running:
+   ```bash
+   brew install --cask docker
+   ```
+3. Install `kind`, `kubectl`, and `helm` using Homebrew:
+   ```bash
+   brew install kind kubectl helm
+   ```
+4. Verify the tools are installed:
+   ```bash
+   docker --version
+   kind --version
+   kubectl version --client
+   helm version
+   ```
+
 
 ## Study Path
 
 1. **Set up a local cluster**
-   - Install Docker and the `kind` tool.
-   - Create a cluster using the config:
+   - Create a cluster using the provided config. It maps port `80` from the
+     cluster to your laptop and starts two worker nodes for a more realistic
+     environment:
      ```bash
      kind create cluster --config examples/kind-cluster.yaml
+     ```
+   - If you build Docker images locally, load them into the cluster with:
+     ```bash
+     kind load docker-image <image-name>
      ```
 
 2. **Explore the cluster**
